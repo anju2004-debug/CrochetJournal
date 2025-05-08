@@ -1,0 +1,5 @@
+@model CrochetJournal.Models.BlogPost
+<h2>@Model.Title</h2>
+<p><em>Posted on @Model.PostedOn.ToString("MMMM dd, yyyy")</em></p>
+<p>@Model.Content</p>
+<a href="/Blog">Go Back to all posts</a>

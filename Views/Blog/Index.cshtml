@@ -1,0 +1,11 @@
+@model List<CrochetJournal.Models.BlogPost>
+  <h2>Blog Posts</h2>
+  <ul>
+    @foreach(var post in Model) {
+    <li>
+      <a href="/Blog/Details/@post.Id">@post.Title</a>
+      -@post.PostedOn.ToShortDateString()
+    </li>
+    }
+  </ul></CrochetJournal.Models.BlogPost
+>
