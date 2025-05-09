@@ -1,0 +1,31 @@
+@model CrochetJournal.Models.User
+@{
+  ViewData["Title"] ="Register";
+}
+<pre>
+<h2>Register</h2>
+<form method="post">
+  <div>
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="Username"
+      asp-for="Username"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="PasswordHash"
+      asp-for="PasswordHash"
+      required
+    />
+  </div>
+
+  <button type="submit">Register</button>
+</form>

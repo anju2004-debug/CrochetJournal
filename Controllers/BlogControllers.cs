@@ -1,10 +1,16 @@
 using CrochetJournal.Models;
 using Microsoft.AspNetCore.Mvc;
 using CrochetJournal.Data;
+using System.ComponentModel.DataAnnotations;
 namespace CrochetJournal.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly BlogDbContext _context;
+        public BlogController(BlogDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             var posts = new List<BlogPost>
@@ -29,6 +35,17 @@ namespace CrochetJournal.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(BlogPost blogPost)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.BlogPosts.Add(blogPost);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Blog");
+            }
+            return View(blogPost);
         }
 
     }

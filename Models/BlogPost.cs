@@ -9,6 +9,9 @@ namespace CrochetJournal.Models
         public string Content { get; set; }
         public DateTime PostedOn { get; set; }
 
+        //foreign keys
+        public int UserId { get; set; }
+
         //relation with users and comments
         public List<User> Users { get; set; }
         public List<Comment> Comments { get; set; }

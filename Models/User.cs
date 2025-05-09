@@ -10,6 +10,7 @@ namespace CrochetJournal.Models
         [Required]
         public string Username { get; set; }
         public string Email { get; set; }
+        [Required]
         public string PasswordHash { get; set; }
         public DateTime CreatedOn { get; set; }
         //foreign keys
