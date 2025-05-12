@@ -1,31 +1,33 @@
-@model CrochetJournal.Models.User
+@model RegisterViewModel
+
 @{
-  ViewData["Title"] ="Register";
+    ViewData["Title"] = "Register";
 }
-<pre>
-<h2>Register</h2>
-<form method="post">
-  <div>
-    <label for="username">Username</label>
-    <input
-      type="text"
-      id="username"
-      name="Username"
-      asp-for="Username"
-      required
-    />
-  </div>
 
-  <div>
-    <label for="password">Password</label>
-    <input
-      type="password"
-      id="password"
-      name="PasswordHash"
-      asp-for="PasswordHash"
-      required
-    />
-  </div>
+<h2>@ViewData["Title"]</h2>
 
-  <button type="submit">Register</button>
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

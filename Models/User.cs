@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 using CrochetJournal.Data;
 namespace CrochetJournal.Models
 {
-    public class User
+    public class User: IdentityUser
     {
         [Key]
         public int UserId { get; set; }
